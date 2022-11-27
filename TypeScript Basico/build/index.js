@@ -31,7 +31,7 @@ let aplicacion = {
     tiempo: 9,
     ocupado: true,
 };
-console.log('Esto es una interfase');
+console.log('Esto es una interface');
 console.log(aplicacion);
 console.log('----------------------------------------------------');
 let productoVisto = {
@@ -70,23 +70,61 @@ let empleados = [
         sueldo: 2900,
         tareas: Tareas.Completada,
         tiempo: 9,
-        ocupado: true
+        ocupado: true,
     },
     {
         nombre: 'Tester',
         sueldo: 3000,
         tareas: Tareas.Demorado,
         tiempo: 9,
-        ocupado: true
+        ocupado: true,
     },
     {
         nombre: 'Q&A Asistente',
         sueldo: 2900,
-        tareas: Tareas["En proceso"],
+        tareas: Tareas['En proceso'],
         tiempo: 9,
-        ocupado: true
-    }
+        ocupado: true,
+    },
 ];
+console.log();
+//For clasico
+for (let i = 0; i < empleados.length; i++) {
+    const empleadoArray = empleados[i];
+    console.log(`${i + 1} - ${empleadoArray.nombre}`);
+}
+console.log();
+console.log('---------------------------------------');
+console.log();
+//ForEach
 empleados.forEach((puestos, index) => {
     console.log(`${index + 1} - ${puestos.tareas}`);
 });
+//Funciones
+/**
+ *  Dependiendo del input devuelve Buenas! o Adios!
+ */
+function doAThing(a) {
+    if (a === 'Buenas') {
+        return 'Buenas!';
+    }
+    else {
+        return 'Adios!';
+    }
+}
+console.log("Funcion nueva: " + doAThing("asd"));
+/**
+* Saluda a alguien
+*/
+function saludarAlguien(nombre) {
+    console.log(`Hola ${nombre}, como andas`);
+}
+/**
+ * Hace una suma random
+ */
+function sumarRandom() {
+    let a = Math.random(), b = Math.random();
+    console.log("Suma random! " + a + b);
+}
+saludarAlguien(nombre);
+sumarRandom();

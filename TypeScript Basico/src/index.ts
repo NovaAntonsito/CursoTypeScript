@@ -25,7 +25,7 @@ enum Tareas {
   'Completada' = 'Completada',
   'En proceso' = 'En proceso',
   'Demorado' = 'Demorado',
-  'No empezado' = 'No empezado'
+  'No empezado' = 'No empezado',
 }
 
 let estadoTarea: Tareas = Tareas.Completada
@@ -51,7 +51,7 @@ let aplicacion: Puestos = {
   ocupado: true,
 }
 
-console.log('Esto es una interfase')
+console.log('Esto es una interface')
 console.log(aplicacion)
 console.log('----------------------------------------------------')
 
@@ -98,45 +98,72 @@ let listaDeCompra: Producto[] = [
 
 //Lista de puestos:Inteface
 let empleados: Puestos[] = [
-    {
-        nombre: 'Tecnico en software',
-        sueldo: 2900,
-        tareas: Tareas.Completada,
-        tiempo: 9,
-        ocupado: true
-    },
-    {
-        nombre: 'Tester',
-        sueldo: 3000,
-        tareas: Tareas.Demorado,
-        tiempo: 9,
-        ocupado: true
-    },
-    {
-        nombre: 'Q&A Asistente',
-        sueldo: 2900,
-        tareas: Tareas["En proceso"],
-        tiempo: 9,
-        ocupado: true
-    }
+  {
+    nombre: 'Tecnico en software',
+    sueldo: 2900,
+    tareas: Tareas.Completada,
+    tiempo: 9,
+    ocupado: true,
+  },
+  {
+    nombre: 'Tester',
+    sueldo: 3000,
+    tareas: Tareas.Demorado,
+    tiempo: 9,
+    ocupado: true,
+  },
+  {
+    nombre: 'Q&A Asistente',
+    sueldo: 2900,
+    tareas: Tareas['En proceso'],
+    tiempo: 9,
+    ocupado: true,
+  },
 ]
-console.log();
+console.log()
 
 //For clasico
-for(let i = 0; i < empleados.length; i++){
-    const empleadoArray = empleados[i];
-    console.log(`${i+1} - ${empleadoArray.nombre}`);
+for (let i = 0; i < empleados.length; i++) {
+  const empleadoArray = empleados[i]
+  console.log(`${i + 1} - ${empleadoArray.nombre}`)
 }
-console.log();
-console.log("---------------------------------------");
-console.log();
-
-
+console.log()
+console.log('---------------------------------------')
+console.log()
 
 //ForEach
-empleados.forEach(
-  (puestos : Puestos, index : number)=>{
-    console.log(`${index+1} - ${puestos.tareas}`);
-  }
-)
+empleados.forEach((puestos: Puestos, index: number) => {
+  console.log(`${index + 1} - ${puestos.tareas}`)
+})
 
+//Funciones
+
+
+/** 
+ *  Dependiendo del input devuelve Buenas! o Adios! 
+ */
+function doAThing(a: string) {
+  if (a === 'Buenas') {
+    return 'Buenas!'
+  } else {
+    return 'Adios!'
+  }
+}
+
+console.log("Funcion nueva: "+doAThing("asd"));
+
+/** 
+* Saluda a alguien 
+*/
+function saludarAlguien(nombre:string) {
+  console.log(`Hola ${nombre}, como andas`);
+}
+/**
+ * Hace una suma random
+ */
+function sumarRandom() {
+  let a:number = Math.random(), b:number = Math.random()
+  console.log("Suma random! "+ a+b);
+} 
+saludarAlguien(nombre);
+sumarRandom();
