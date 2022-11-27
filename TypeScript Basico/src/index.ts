@@ -167,3 +167,58 @@ function sumarRandom() {
 } 
 saludarAlguien(nombre);
 sumarRandom();
+
+//Funciones Arrow
+
+/**
+ * Muestra el sueldo y usa otra funcion en caso de necesite cambiar el sueldo
+ * @param e 
+ */
+const mostrarSueldo = (e : Puestos)=>{
+     if(!(e.sueldo < 2000)){
+      cambiarSueldo(e)
+     }else{
+      console.log(`${e.nombre} cobra ${e.sueldo}`);
+     }
+}
+
+const cambiarSueldo = (e:Puestos) =>{
+  console.log(`${e.nombre} se le cambio el sueldo a 3000`);
+  return e.sueldo = 3000
+}
+
+mostrarSueldo(aplicacion)
+
+console.log(aplicacion);
+
+
+//Funciones Async
+/**Contienen metodos Await, Generators, yield */
+
+async function asyncEjemplo() :Promise<string> {
+    await console.log("Tarea a completar");
+    console.log("Termine con las tareas");
+    return "Completado"
+}
+asyncEjemplo()
+.then((result : string) => {
+      console.log(`Respuesta ${result}`);
+})
+.catch((err : string) => {
+  console.log(`${err} Error!`);
+  
+})
+.finally(()=>"Todo terminado")
+
+function* generatorEjemplo() {
+  // yield ==> para emitir valores
+  let index = 0;
+  while(index < 5){
+    yield index++
+  }
+}
+
+let generator = generatorEjemplo()
+
+
+console.log(generator.next().value);
