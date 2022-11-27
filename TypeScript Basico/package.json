@@ -27,6 +27,7 @@
     "homepage": "https://github.com/NovaAntonsito/CursoTypeScript#readme",
     "dependencies": {
         "@types/node": "^18.11.9",
+        "cookies-utils": "^1.0.0",
         "nodemon": "^2.0.20",
         "rimraf": "^3.0.2",
         "ts-node": "^10.9.1",

@@ -1,4 +1,16 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const Cursos_mock_1 = require("./mock/Cursos.mock");
+const Estudiante_1 = require("./models/Estudiante");
 //Declaracion de variables
 let nombre = 'Marcos';
 let edad = 23;
@@ -128,3 +140,61 @@ function sumarRandom() {
 }
 saludarAlguien(nombre);
 sumarRandom();
+//Funciones Arrow
+/**
+ * Muestra el sueldo y usa otra funcion en caso de necesite cambiar el sueldo
+ * @param e
+ */
+const mostrarSueldo = (e) => {
+    if (!(e.sueldo < 2000)) {
+        cambiarSueldo(e);
+    }
+    else {
+        console.log(`${e.nombre} cobra ${e.sueldo}`);
+    }
+};
+const cambiarSueldo = (e) => {
+    console.log(`${e.nombre} se le cambio el sueldo a 3000`);
+    return e.sueldo = 3000;
+};
+mostrarSueldo(aplicacion);
+console.log(aplicacion);
+//Funciones Async
+/**Contienen metodos Await, Generators, yield */
+function asyncEjemplo() {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield console.log("Tarea a completar");
+        console.log("Termine con las tareas");
+        return "Completado";
+    });
+}
+asyncEjemplo()
+    .then((result) => {
+    console.log(`Respuesta ${result}`);
+})
+    .catch((err) => {
+    console.log(`${err} Error!`);
+})
+    .finally(() => "Todo terminado");
+function* generatorEjemplo() {
+    // yield ==> para emitir valores
+    let index = 0;
+    while (index < 5) {
+        yield index++;
+    }
+}
+let generator = generatorEjemplo();
+console.log(generator.next().value);
+//Sobrecarga de objetos
+function mostrarError(error) {
+    console.log("Error ", error);
+}
+//Persistencia de datos
+/**
+ * 1:Local Storage
+ * 2:Session Storage
+ * 3:Cookies
+*/
+const newEstudiante = new Estudiante_1.Estudiante("Marcos", "3992399", Cursos_mock_1.listaCursos, 232132323, "Anton");
+console.log(`El estudiante ${newEstudiante.nombre} ${newEstudiante.apellidos}, legajo ${newEstudiante.legajo}`);
+console.log(newEstudiante.horasTotales);

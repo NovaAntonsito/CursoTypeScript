@@ -1,3 +1,8 @@
+import { setCookie } from "cookies-utils"
+import { listaCursos } from "./mock/Cursos.mock"
+import { Curso } from "./models/Cursos"
+import { Estudiante } from "./models/Estudiante"
+
 //Declaracion de variables
 let nombre: string = 'Marcos'
 let edad: number = 23
@@ -222,3 +227,28 @@ let generator = generatorEjemplo()
 
 
 console.log(generator.next().value);
+
+
+//Sobrecarga de objetos
+
+function mostrarError(error : string | number) : void{
+  console.log("Error ", error);
+}
+
+
+//Persistencia de datos
+/**  
+ * 1:Local Storage
+ * 2:Session Storage
+ * 3:Cookies
+*/
+
+const newEstudiante : Estudiante = new Estudiante ("Marcos","3992399", listaCursos,232132323,"Anton")
+
+console.log(`El estudiante ${newEstudiante.nombre} ${newEstudiante.apellidos}, legajo ${newEstudiante.legajo}`);
+
+console.log(newEstudiante.horasTotales);
+
+
+
+
