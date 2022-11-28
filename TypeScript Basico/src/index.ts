@@ -1,7 +1,12 @@
 import { setCookie } from "cookies-utils"
+import { couldStartTrivia } from "typescript"
 import { listaCursos } from "./mock/Cursos.mock"
 import { Curso } from "./models/Cursos"
+import { Empleado } from "./models/Empleado"
 import { Estudiante } from "./models/Estudiante"
+import { iTarea } from "./models/interfaces/tarea.interface"
+import { Jefe } from "./models/Jefe"
+import { Persona, Generos } from "./models/Persona"
 
 //Declaracion de variables
 let nombre: string = 'Marcos'
@@ -251,4 +256,36 @@ console.log(newEstudiante.horasTotales);
 
 
 
+let fechaActual = new Date(2022,11,27)
 
+const newPersona : Persona = new Persona("Marcos", "Anton", 42209583,new Date(2022,11,27),Generos.Masculino)
+
+console.log(newPersona);
+
+newPersona.saludar()
+
+
+
+
+const empleadosLista : Empleado[] = [
+new Empleado("Marcos", "Anton", 42209583,new Date(2022,11,27),Generos.Masculino,223420,"Backend Developer", "9:00 - 18:30"),
+new Empleado("Marcos", "Anton", 42209583,new Date(2022,11,27),Generos.Masculino,223420,"Backend Developer", "9:00 - 18:30"),
+new Empleado("Marcos", "Anton", 42209583,new Date(2022,11,27),Generos.Masculino,223420,"Backend Developer", "9:00 - 18:30"),
+new Empleado("Marcos", "Anton", 42209583,new Date(2022,11,27),Generos.Masculino,223420,"Backend Developer", "9:00 - 18:30")]
+
+const newEmpleado : Empleado = new Empleado("Marcos", "Anton", 42209583,new Date(2022,11,27),Generos.Masculino,223420,"Backend Developer", "9:00 - 18:30")
+
+const newJefe : Jefe = new Jefe("Marcos", "Anton", 42209583,new Date(2022,11,27),Generos.Masculino,212002, empleadosLista)
+
+console.log(newJefe);
+
+let programar : iTarea ={
+  titulo: "",
+  personaACargo: newEmpleado,
+  fechaEntrega: new Date(2022,11,27),
+  fechaInicio: new Date(2022,11,27),
+  resumen: function (): string {
+    throw new Error("Function not implemented.")
+  },
+  completado: false
+}

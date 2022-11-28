@@ -11,6 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const Cursos_mock_1 = require("./mock/Cursos.mock");
 const Estudiante_1 = require("./models/Estudiante");
+const Genero_enum_1 = require("./models/Genero.enum");
+const Persona_1 = require("./models/Persona");
 //Declaracion de variables
 let nombre = 'Marcos';
 let edad = 23;
@@ -198,3 +200,7 @@ function mostrarError(error) {
 const newEstudiante = new Estudiante_1.Estudiante("Marcos", "3992399", Cursos_mock_1.listaCursos, 232132323, "Anton");
 console.log(`El estudiante ${newEstudiante.nombre} ${newEstudiante.apellidos}, legajo ${newEstudiante.legajo}`);
 console.log(newEstudiante.horasTotales);
+let fechaActual = new Date(2022, 11, 27);
+const newPersona = new Persona_1.Persona("Marcos", "Anton", 42209583, new Date(2022, 11, 27), Genero_enum_1.Generos.Masculino);
+console.log(newPersona);
+newPersona.saludar();
