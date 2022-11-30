@@ -289,3 +289,33 @@ let programar : iTarea ={
   },
   completado: false
 }
+interface direction {
+      street : string,
+      country : string,
+      city : string
+}
+
+interface forjador {
+   name : string,
+   age : number,
+   countTools : number,
+   direction: direction,
+   isForging : boolean,
+   isForgingNow: () => string
+}
+
+
+const forjador1 : forjador = {
+    name: "Marcos",
+    age: 23,
+    countTools: 3,
+    direction: {
+      street : "NY",
+      country : "Main St",
+      city : "New york"
+    },
+    isForging: true,
+    isForgingNow() {
+      return this.isForging ? "Esta forjando ahora" : "No esta forjando"
+    },
+}

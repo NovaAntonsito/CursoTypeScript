@@ -1,6 +1,5 @@
 import { Empleado } from "./Empleado";
-import { Generos } from "./Genero.enum";
-import { Persona } from "./Persona";
+import { Persona, Generos } from "./Persona";
 
 export class Jefe extends Persona{
     sueldo : number;
