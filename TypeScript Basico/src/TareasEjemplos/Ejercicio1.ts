@@ -30,8 +30,44 @@ const myMap = new Map <string , string> ([
     ["Chile", "Mundian't"]
 ])
 
+interface Productos{
+    name : string
+    price : number
+}
 
 
+const tableta : Productos = {
+        name : "Airpods",
+        price : 300
+}
 
+const celular : Productos = {
+    name : "Alcatel",
+    price: 200
+}
 
+function calculaISV (producto : Productos[]) : number {
+    let total = 0;
+
+    producto.forEach(({price})=>{
+        total += price
+        console.log("Precio a sumar ",price);
+        
+    })
+    
+    console.log(total);
+    
+    return (total * 0.15)
+}
+
+const productosList: Productos[] = [celular,tableta]
+
+/**
+ * Obtener un numero x random entre 1 y 3
+ */
+let x: number = Math.floor(Math.random()*(3 - 1) * 1)
+/**
+ * Obtener un numero y rantom entre 1 y 3 
+ */
+let y: number = Math.floor(Math.random()*(3 - 1) * 1)
 
